@@ -1,7 +1,7 @@
 {% block html_head_container %} 
   {% include 'twig/head.twig' %} 
     {% block head %} 
-  {% endblock %}
+    {% endblock %}
   </head>
 {% endblock %}
 
@@ -24,6 +24,10 @@
     <!-- /.wrapper -->
 
     {% include "twig/footer.twig" %}
+    {% block html_javascript_container %}
+      {% include 'twig/javascript.twig' %}
+      {% block javascript %}
+      {% endblock %}
+    {% endblock %}
   </body>
-
 </html>
