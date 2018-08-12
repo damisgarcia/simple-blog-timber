@@ -1,0 +1,13 @@
+{% block content %}
+  <ul>
+    {% for post in posts %}
+      <li>
+        <a href="{{ post.link }}">
+          {{ post.title }}
+        </a>
+      </li>
+    {% else %}
+      <li>Desculpe, nenhum post bate com este critério</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
