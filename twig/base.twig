@@ -1,0 +1,29 @@
+{% block html_head_container %} 
+  {% include 'twig/head.twig' %} 
+    {% block head %} 
+  {% endblock %}
+  </head>
+{% endblock %}
+
+{% block html_header_container %}
+  {% include 'twig/header.twig' %} 
+{% endblock %}
+
+  <body class="{{body_class}}">
+
+    <div class="wrapper">
+
+      {% block content %}
+
+      <!-- Add your main content here. -->
+      <p>SORRY! No content found!</p>
+
+      {% endblock %}
+
+    </div>
+    <!-- /.wrapper -->
+
+    {% include "twig/footer.twig" %}
+  </body>
+
+</html>
