@@ -17,6 +17,8 @@ $context = Timber::get_context();
 $context['post']  = new Timber\Post();
 $context['posts'] = new Timber\PostQuery();
 
+$context['customize'] = $wp_customize;
+
 $menu = new Timber\Menu('primary');
 
 $templates = array( 'twing/index.twig' );

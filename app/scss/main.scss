@@ -1,5 +1,4 @@
 @import "~bootstrap/scss/bootstrap";
 
-body {
-  background-color: #fff;
-}
+@import "base/variables";
+@import "base/base";

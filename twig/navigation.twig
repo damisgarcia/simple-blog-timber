@@ -7,16 +7,19 @@
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+      <div class="mr-auto"></div>
+      <ul class="navbar-nav">
         {% for item in menu.items %}
-          <li class="nav-item {{ item.classes|join(' ') }}">
-            <a class="nav-link" href="{{ item.link }}">{{ item.title }}</a>
+          <li class="nav-item {{ item.classes|join(' ') }} {{ item.children ? 'dropdown' : '' }}">
             {% if item.children %}
-            <div class="dropdown-menu" id="submenu-{{item.id}}"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {% for child in item.children %}
+              <a class="nav-link dropdown-toggle" href="{{ item.link }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ item.title }}</a>
+              <div class="dropdown-menu" id="submenu-{{item.id}}">
+                {% for child in item.children %}
                 <a class="dropdown-item" href="{{ child.link }}">{{ child.title }}</a>
-              {% endfor %}
-            </div>                  
+                {% endfor %}
+              </div>
+              {% else %}
+                <a class="nav-link" href="{{ item.link }}">{{ item.title }}</a>              
             {% endif %}
           </li>
         {% endfor %}

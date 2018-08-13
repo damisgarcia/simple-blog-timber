@@ -24,8 +24,11 @@ class StarterSite extends TimberSite {
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
-		add_action( 'init', array( $this, 'register_taxonomies' ) );
-		parent::__construct();
+    add_action( 'init', array( $this, 'register_taxonomies' ) );
+    
+    add_action( 'customize_register', array( $this, 'add_setting' ) );
+        
+    parent::__construct();
 	}
 
 	function register_post_types() {
@@ -55,8 +58,58 @@ class StarterSite extends TimberSite {
 		$twig->addExtension( new Twig_Extension_StringLoader() );
 		$twig->addFilter('myfoo', new Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
 		return $twig;
-	}
+  }
+  
+  function add_setting($wp_customize) {
 
+    $wp_customize->add_section('social_media', array(
+      'title' => 'Redes Sociais'
+    ));
+
+    $wp_customize->add_setting('facebook', array(
+      'default'   => 'http://'
+    ));
+    
+    $wp_customize->add_setting('twitter', array(
+      'default'   => 'http://'
+    ));
+
+    $wp_customize->add_setting('instagram', array(
+      'default'   => 'http://'
+    ));
+
+    $wp_customize->add_setting('github', array(
+      'default'   => 'http://'
+    ));
+
+    $wp_customize->add_control('facebook', array(
+      'settings' => 'facebook',
+      'label'   => 'Facebook',
+      'section' => 'social_media',
+      'type'    => 'text'
+    ));
+
+    $wp_customize->add_control('twitter', array(
+      'settings' => 'twitter',
+      'label'   => 'Twitter',
+      'section' => 'social_media',
+      'type'    => 'text'
+    ));    
+
+    $wp_customize->add_control('instagram', array(
+      'settings' => 'instagram',
+      'label'   => 'Instagram',
+      'section' => 'social_media',
+      'type'    => 'text'
+    ));    
+
+    $wp_customize->add_control('github', array(
+      'settings' => 'github',
+      'label'   => 'Github',
+      'section' => 'social_media',
+      'type'    => 'text'
+    ));    
+  }
 }
 
 new StarterSite();
