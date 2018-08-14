@@ -26,7 +26,7 @@ class StarterSite extends TimberSite {
 		add_action( 'init', array( $this, 'register_post_types' ) );
     add_action( 'init', array( $this, 'register_taxonomies' ) );
     
-    add_action( 'customize_register', array( $this, 'add_setting' ) );
+    add_action( 'customize_register', array( $this, 'add_social_media_settings' ) );
         
     parent::__construct();
 	}
@@ -60,7 +60,7 @@ class StarterSite extends TimberSite {
 		return $twig;
   }
   
-  function add_setting($wp_customize) {
+  function add_social_media_settings($wp_customize) {
 
     $wp_customize->add_section('social_media', array(
       'title' => 'Redes Sociais'

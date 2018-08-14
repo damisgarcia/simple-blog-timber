@@ -1,13 +1,24 @@
 <footer class="container">
-  <div class="row">
-    <div class="col-md">
+  <div class="d-flex">
+    <div class="col-md-3">
+      <div class="d-flex flex-column">
+        {% if fn('get_theme_mod', 'facebook') %}
+          <a href="{{ fn('get_theme_mod', 'facebook') }}" target="_blank">Facebook</a>
+        {% endif %}
+        {% if fn('get_theme_mod', 'twitter') %}
+          <a href="{{ fn('get_theme_mod', 'twitter') }}" target="_blank">Twitter</a>
+        {% endif %}
+        {% if fn('get_theme_mod', 'instagram') %}
+          <a href="{{ fn('get_theme_mod', 'instagram') }}" target="_blank">Instagram</a>
+        {% endif %}
+        {% if fn('get_theme_mod', 'github') %}
+          <a href="{{ fn('get_theme_mod', 'github') }}" target="_blank">Github</a>
+        {% endif %}        
+      </div>
+    </div>
+    <div class="col-md"></div>
+    <div class="col-md-3 align-self-end">
       <p>{{site.description}}</p>
-    </div>
-    <div class="col-md">
-      One of thown columns
-    </div>
-    <div class="col-md">
-      One of three columns
     </div>
   </div>  
 </footer>
