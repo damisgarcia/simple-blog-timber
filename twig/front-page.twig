@@ -1,7 +1,8 @@
 {% extends "twig/base.twig" %}
 
 {% block content %}
-  <h1>Essa é a front Page</h1>
+  {% include "twig/carousel.twig" %}  
+  {# Posts #}
   <ul>
     {% for post in posts %}
       <li>
